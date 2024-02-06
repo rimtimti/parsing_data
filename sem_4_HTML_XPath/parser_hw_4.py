@@ -1,9 +1,6 @@
 import requests
 from lxml import html
 from pymongo import MongoClient
-import time
-
-# url = "https://www.imdb.com/chart/boxoffice/"
 
 # Функция для скрейпинга табличных данных со страницы
 def scrape_page_data(url):
@@ -27,10 +24,6 @@ def scrape_page_data(url):
         })
     return data
 
-
-# print(scrape_page_data(url))
-
-
 # Функция для сохранения данных в MongoDB
 def save_data_to_mongo(data):
     client = MongoClient('localhost', 27017)
@@ -41,13 +34,8 @@ def save_data_to_mongo(data):
 # Main function
 def main():
     url = "https://www.imdb.com/chart/boxoffice/"
-
-    # for page in range(1, 7):
-    #     print(f"Scraping page {page}...")
-    #     url = base_url + str(page)
     data = scrape_page_data(url)
     save_data_to_mongo(data)
-    # time.sleep(5)
 
 if __name__ == "__main__":
     main()
