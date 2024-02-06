@@ -5,8 +5,8 @@ import json
 client = MongoClient()
 
 # подключение к базе данных и коллекции
-db = client['books_toscrape_com']
-collection = db['scrape']
+db = client["books_toscrape_com"]
+collection = db["scrape"]
 
 # вывод первой записи в коллекции
 all_docs = collection.find()
@@ -18,7 +18,7 @@ print(pretty_json)
 
 # Получение количества документов в коллекции с помощью функции count_documents()
 count = collection.count_documents({})
-print(f'Число записей в базе данных: {count}')
+print(f"Число записей в базе данных: {count}")
 
 # # # фильтрация документов по критериям
 # query = {"properties.fatalities": "Yes"}
@@ -45,11 +45,15 @@ print(f"Количество книг в наличии >= 10: {collection.count
 
 # Использование оператора $regex
 query = {"description": {"$regex": "travel"}}
-print(f"Количество книг, содержащих в description 'travel': {collection.count_documents(query)}")
+print(
+    f"Количество книг, содержащих в description 'travel': {collection.count_documents(query)}"
+)
 
 # Использование оператора $regex
 query = {"description": {"$regex": "art"}}
-print(f"Количество книг, содержащих в description 'art': {collection.count_documents(query)}")
+print(
+    f"Количество книг, содержащих в description 'art': {collection.count_documents(query)}"
+)
 
 # Использование оператора $regex
 query = {"name": {"$regex": "Dark"}}

@@ -28,7 +28,7 @@ url = "https://jsonplaceholder.typicode.com/posts/1"
 # if response.status_code // 100 == 2:
 #     print("запрос успешен")
 #     print(response.text)
-    
+
 response = requests.delete(url)
 if response.status_code // 100 == 2:
     print("запрос успешен")
