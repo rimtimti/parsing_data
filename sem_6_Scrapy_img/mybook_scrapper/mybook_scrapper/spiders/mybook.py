@@ -19,9 +19,9 @@ class MybookSpider(CrawlSpider):
             callback="parse_item",
             follow=True,
         ),
-        # Rule(
-        #     LinkExtractor(restrict_xpaths="//div[@class='m4n24q-0 bkolKJ']/a"),
-        # ),
+        Rule(
+            LinkExtractor(restrict_xpaths="//div[@class='m4n24q-0 bkolKJ']/a"),
+        ),
     )
 
     def parse_item(self, response):
